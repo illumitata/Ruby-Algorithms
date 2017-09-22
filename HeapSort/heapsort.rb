@@ -10,7 +10,7 @@ class HeapSort
   attr_accessor :heap
 
   #Zainicjowanie tablicy
-  def initialize(heap = [8, 5, 99, 12, 12, 3, 67])
+  def initialize(heap = [4, 2, 1, 3, 10, 7, 5])
     @heap = heap
   end
 
@@ -58,29 +58,29 @@ class HeapSort
   end
 
   #Wizualizacja kopca
-#  def drawHeap
-#    spaceNum = (@heap.length + 1) / 2
-#    k = 2
-#
-#    (1..(@heap.length)).each do |i|
-#      (1..spaceNum-1).each do
-#        print "\t"
-#      end
-#
-#      print @heap[i-1]
-#
-#      (1..spaceNum).each do
-#        print "\t"
-#      end
-#
-#      if i + 1 == k
-#        k += k
-#        spaceNum /= 2
-#        print "\n"
-#      end
-#    end
-#    print"\n\n"
-#  end
+  def drawHeap
+    spaceNum = (@heap.length + 1)
+    k = 2
+
+    (1..(@heap.length)).each do |i|
+      (1..spaceNum-1).each do
+        print " "
+      end
+
+      print @heap[i-1]
+
+      (1..spaceNum).each do
+        print " "
+      end
+
+      if i + 1 == k
+        k += k
+        spaceNum /= 2
+        print "\n"
+      end
+    end
+    print"\n\n"
+  end
 
 end
 
@@ -100,8 +100,8 @@ end
     print "\nAfter building a heap:\n"
     puts sort.heap.join(" ")
 
-#    print "\nYour heap:\n"
-#    sort.drawHeap
+    print "\nYour heap:\n"
+    sort.drawHeap
 
     sort.sorting
 
