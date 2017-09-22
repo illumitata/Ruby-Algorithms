@@ -10,7 +10,7 @@ class HeapSort
   attr_accessor :heap
 
   #Zainicjowanie tablicy
-  def initialize(heap = [8, 5, 99, 12, 12, 3, 67])
+  def initialize(heap = [4, 3, 2, 33, 11, 6, 5, 9, 88, 99, 22, 31, 11, 3, 4])
     @heap = heap
   end
 
@@ -58,29 +58,46 @@ class HeapSort
   end
 
   #Wizualizacja kopca
-#  def drawHeap
-#    spaceNum = (@heap.length + 1) / 2
-#    k = 2
-#
-#    (1..(@heap.length)).each do |i|
-#      (1..spaceNum-1).each do
-#        print "\t"
-#      end
-#
-#      print @heap[i-1]
-#
-#      (1..spaceNum).each do
-#        print "\t"
-#      end
-#
-#      if i + 1 == k
-#        k += k
-#        spaceNum /= 2
-#        print "\n"
-#      end
-#    end
-#    print"\n\n"
-#  end
+  def drawHeap
+    tmpSize = @heap.length
+    k = 1
+    levelsNum = 1
+
+    while tmpSize > 0 do
+      tmpSize = tmpSize - k
+      k += k * 2
+      levelsNum += 1
+    end
+
+    puts "heap level: #{levelsNum}"
+
+    spaceNum = 1
+
+    (1..levelsNum+1).each do |j|
+      spaceNum += j * 2
+    end
+
+    spaceNum += levelsNum
+    k = 2
+
+    (1..(@heap.length)).each do |i|
+      (1..spaceNum).each do
+        print " "
+      end
+
+      print @heap[i-1]
+
+      (1..spaceNum).each do
+        print " "
+      end
+
+      if i + 1 == k
+        k = k * 2
+        spaceNum /= 2
+        print("\n")
+      end
+    end
+  end
 
 end
 
@@ -100,8 +117,8 @@ end
     print "\nAfter building a heap:\n"
     puts sort.heap.join(" ")
 
-#    print "\nYour heap:\n"
-#    sort.drawHeap
+    print "\nYour heap --- "
+    sort.drawHeap
 
     sort.sorting
 
