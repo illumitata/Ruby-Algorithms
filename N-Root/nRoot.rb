@@ -1,6 +1,6 @@
 #################################################
 ###     Szukanie przybliżenia pierwiastka     ###
-###           kwadratowego w Ruby             ###
+###                  w Ruby                   ###
 ###       Jan Iwaszkiewicz @illumitata        ###
 #################################################
 
